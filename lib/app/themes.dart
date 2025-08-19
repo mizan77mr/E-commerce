@@ -22,7 +22,19 @@ class Themes{
         letterSpacing: 0.1,
 
       ),
-    )
+    ),
+
+     elevatedButtonTheme: ElevatedButtonThemeData(
+         style: ElevatedButton.styleFrom(
+           fixedSize: Size(350, 45),
+           shape: RoundedRectangleBorder(
+             borderRadius: BorderRadius.circular(20),
+           ),
+           backgroundColor: AppColors.themeColor,
+           foregroundColor: Colors.white,
+           textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+         )
+     )
     );
 
   }

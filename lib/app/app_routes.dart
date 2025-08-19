@@ -1,7 +1,8 @@
-import 'package:fashion/features/auth/ui/screen/onboarding_one_screen.dart';
-import 'package:fashion/features/auth/ui/screen/onboarding_screen.dart';
-import 'package:fashion/features/auth/ui/screen/onboarding_three_screen.dart';
-import 'package:fashion/features/auth/ui/screen/onboarding_two_screen.dart';
+import 'package:fashion/features/Home/ui/sreen/home_screen.dart';
+import 'package:fashion/features/auth/ui/screen/onboarding/onboarding_one_screen.dart';
+import 'package:fashion/features/auth/ui/screen/onboarding/onboarding_screen.dart';
+import 'package:fashion/features/auth/ui/screen/onboarding/onboarding_three_screen.dart';
+import 'package:fashion/features/auth/ui/screen/onboarding/onboarding_two_screen.dart';
 import 'package:fashion/features/auth/ui/screen/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,8 @@ class AppRoutes {
       screenWidget = OnboardingTwoScreen();
     } else if (setting.name == OnboardingThreeScreen.name) {
       screenWidget = OnboardingThreeScreen();
+    } else if (setting.name == HomeScreen.name) {
+      screenWidget = HomeScreen();
     }
 
     return MaterialPageRoute(builder: (context) => screenWidget);

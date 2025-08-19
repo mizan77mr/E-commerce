@@ -1,5 +1,5 @@
 import 'package:fashion/app/assets_path.dart';
-import 'package:fashion/features/auth/ui/screen/onboarding_screen.dart';
+import 'package:fashion/features/auth/ui/screen/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

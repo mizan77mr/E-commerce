@@ -1,5 +1,5 @@
 import 'package:fashion/app/app_colors.dart';
-import 'package:fashion/app/assets_path.dart';
+import 'package:fashion/features/Home/ui/sreen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingThreeScreen extends StatefulWidget {
@@ -85,9 +85,10 @@ class _OnboardingThreeScreenState extends State<OnboardingThreeScreen> {
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
+                              'https://i.pinimg.com/736x/e5/99/5d/e5995d25a9d52990b2d43d5939920797.jpg',
                               height: 100,
                               width: 100,
-                              'https://i.pinimg.com/736x/e5/99/5d/e5995d25a9d52990b2d43d5939920797.jpg',
+
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -144,16 +145,13 @@ class _OnboardingThreeScreenState extends State<OnboardingThreeScreen> {
           ),
 
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              fixedSize: Size(350, 45),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              backgroundColor: AppColors.themeColor,
-              foregroundColor: Colors.white,
-              textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-            ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                HomeScreen.name,
+                (predicate) => false,
+              );
+            },
             child: Text("Let's Get Started"),
           ),
           const SizedBox(height: 4),
