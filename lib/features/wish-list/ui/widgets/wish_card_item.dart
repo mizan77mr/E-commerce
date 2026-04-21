@@ -115,12 +115,12 @@ class _WishCardItemState extends State<WishCardItem> {
       final bool result = await Get.find<AddToCartController>().addToCart(
         widget.productId,
       );
-      if(!mounted) return;
+      if (!mounted) return;
       if (result) {
         showSnackBarMessage(context, 'Added to cart');
         final bool isDeleted = await Get.find<DeleteWishItemController>()
             .deleteWishItem(widget.wishListItem.id);
-        if(!mounted) return;
+        if (!mounted) return;
         if (isDeleted) {
           Get.find<WishListController>().removeItem(widget.wishListItem.id);
         }
@@ -133,37 +133,21 @@ class _WishCardItemState extends State<WishCardItem> {
     }
   }
 
-/*  Future<void> _onTapDeleteWishItem(BuildContext context) async {
-    final bool isSuccess = await Get.find<DeleteWishItemController>()
-        .deleteWishItem(widget.wishListItem.id);
 
-    if (isSuccess) {
-      Get.find<WishListController>().removeItem(widget.wishListItem.id);
-      showSnackBarMessage(
-        context,
-        Get.find<DeleteWishItemController>().message,
-      );
-    } else {
-      showSnackBarMessage(
-        context,
-        Get.find<DeleteWishItemController>().errorMessage!,
-      );
-    }
-  }*/
   Future<void> _onTapDeleteWishItem(BuildContext context) async {
     final bool isSuccess = await Get.find<DeleteWishItemController>()
         .deleteWishItem(widget.wishListItem.id);
 
     if (isSuccess) {
       Get.find<WishListController>().removeItem(widget.wishListItem.id);
-      if (mounted) {  // Add this check
+      if (mounted) {
         showSnackBarMessage(
           context,
           Get.find<DeleteWishItemController>().message,
         );
       }
     } else {
-      if (mounted) {  // Add this check
+      if (mounted) {
         showSnackBarMessage(
           context,
           Get.find<DeleteWishItemController>().errorMessage!,
