@@ -133,26 +133,23 @@ class _WishCardItemState extends State<WishCardItem> {
     }
   }
 
-
   Future<void> _onTapDeleteWishItem(BuildContext context) async {
     final bool isSuccess = await Get.find<DeleteWishItemController>()
         .deleteWishItem(widget.wishListItem.id);
 
+    if (!mounted) return;
+
     if (isSuccess) {
       Get.find<WishListController>().removeItem(widget.wishListItem.id);
-      if (mounted) {
-        showSnackBarMessage(
-          context,
-          Get.find<DeleteWishItemController>().message,
-        );
-      }
+      showSnackBarMessage(
+        context,
+        Get.find<DeleteWishItemController>().message,
+      );
     } else {
-      if (mounted) {
-        showSnackBarMessage(
-          context,
-          Get.find<DeleteWishItemController>().errorMessage!,
-        );
-      }
+      showSnackBarMessage(
+        context,
+        Get.find<DeleteWishItemController>().errorMessage!,
+      );
     }
   }
 }
