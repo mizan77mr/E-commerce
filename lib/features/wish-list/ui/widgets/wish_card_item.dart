@@ -115,11 +115,12 @@ class _WishCardItemState extends State<WishCardItem> {
       final bool result = await Get.find<AddToCartController>().addToCart(
         widget.productId,
       );
-
+      if(!mounted) return;
       if (result) {
         showSnackBarMessage(context, 'Added to cart');
         final bool isDeleted = await Get.find<DeleteWishItemController>()
             .deleteWishItem(widget.wishListItem.id);
+        if(!mounted) return;
         if (isDeleted) {
           Get.find<WishListController>().removeItem(widget.wishListItem.id);
         }
