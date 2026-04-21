@@ -24,11 +24,14 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: stable
-          channel: stable
+          flutter-version: 'stable'
+          cache: true
 
       - name: Get Dependencies
         run: flutter pub get
+
+      - name: Analyze (optional but good)
+        run: flutter analyze
 
       - name: Build APK
         run: flutter build apk --release
